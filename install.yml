@@ -1,0 +1,16 @@
+---
+- name: Install rsync on Ubuntu
+  hosts: web_servers
+  become: yes  
+  
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      become: yes
+
+    - name: Install rsync
+      apt:
+        name: rsync
+        state: present
+      become: yes
